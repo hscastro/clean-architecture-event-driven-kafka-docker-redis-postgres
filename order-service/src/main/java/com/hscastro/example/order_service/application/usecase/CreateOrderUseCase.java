@@ -4,7 +4,7 @@ import com.hscastro.example.order_service.domain.enums.EOrderStatus;
 import com.hscastro.example.order_service.domain.model.Event;
 import com.hscastro.example.order_service.domain.repository.EventRepository;
 import com.hscastro.example.order_service.domain.repository.OrderRepository;
-import com.hscastro.example.order_service.infrastructure.kafka.producer.OrderKafkaProducer;
+import com.hscastro.example.order_service.infrastructure.messaging.producer.OrderKafkaProducer;
 import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
 import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import com.hscastro.example.order_service.interfaces.utils.JsonUtil;

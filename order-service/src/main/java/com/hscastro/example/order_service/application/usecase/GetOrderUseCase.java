@@ -1,7 +1,7 @@
 package com.hscastro.example.order_service.application.usecase;
 
 import com.hscastro.example.order_service.domain.repository.OrderRepository;
-import com.hscastro.example.order_service.infrastructure.kafka.consumer.OrderKafkaConsumer;
+import com.hscastro.example.order_service.infrastructure.messaging.consumer.OrderKafkaConsumer;
 import com.hscastro.example.order_service.infrastructure.redis.OrderCache;
 import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
 import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;

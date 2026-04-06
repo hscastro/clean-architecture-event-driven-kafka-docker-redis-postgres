@@ -66,7 +66,6 @@ public class OrderRepositoryImpl implements OrderRepository {
     public void deleteById(Long id) {
         jpaOrderRepository.findById(id)
                 .orElseThrow(() -> new OrderValidationException("Order not found!"));
-
         jpaOrderRepository.deleteById(id);
     }
 }

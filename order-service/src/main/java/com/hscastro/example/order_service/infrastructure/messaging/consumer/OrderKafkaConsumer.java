@@ -1,4 +1,4 @@
-package com.hscastro.example.order_service.infrastructure.kafka.consumer;
+package com.hscastro.example.order_service.infrastructure.messaging.consumer;
 
 import com.hscastro.example.order_service.domain.model.Event;
 import org.springframework.kafka.annotation.KafkaListener;

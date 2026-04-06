@@ -32,16 +32,16 @@ spring:
 #    hibernate:
 #      ddl-auto: update
 
-  kafka:
+  messaging:
     bootstrap-servers: localhost:9092
     topic-name: order-created
     producer:
       acks: all
       retries: 3
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-serializer: org.apache.messaging.common.serialization.StringSerializer
+      value-serializer: org.springframework.messaging.support.serializer.JsonSerializer
     consumer:
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.springframework.messaging.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
       group-id: order-group

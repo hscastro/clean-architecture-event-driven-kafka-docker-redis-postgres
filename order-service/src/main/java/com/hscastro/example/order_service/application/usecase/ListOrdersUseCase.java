@@ -10,12 +10,7 @@ import java.util.List;
 public class ListOrdersUseCase {
 
     private final OrderRepository repository;
-    //private final KafkaProducer producer;
 
-//    public CreateOrderUseCase(OrderRepository repository, KafkaProducer producer) {
-//        this.repository = repository;
-//        this.producer = producer;
-//    }
 
     public ListOrdersUseCase(OrderRepository repository) {
         this.repository = repository;
