@@ -1,9 +1,10 @@
-package com.hscastro.example.order_service.application.dto;
+package com.hscastro.example.order_service.interfaces.dto.request;
 
 public record OrderRequestDTO(
-        Long id,
         String product,
         Integer quantity,
+        double price,
         String status
 ){
 }
+

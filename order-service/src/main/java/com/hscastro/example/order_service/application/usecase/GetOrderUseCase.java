@@ -1,15 +1,12 @@
 package com.hscastro.example.order_service.application.usecase;
 
-import com.hscastro.example.order_service.application.dto.OrderRequestDTO;
-import com.hscastro.example.order_service.application.dto.OrderResponseDTO;
-import com.hscastro.example.order_service.domain.model.OrderEvent;
 import com.hscastro.example.order_service.domain.repository.OrderRepository;
 import com.hscastro.example.order_service.infrastructure.kafka.consumer.OrderKafkaConsumer;
 import com.hscastro.example.order_service.infrastructure.redis.OrderCache;
+import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
+import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 @Service
 public class GetOrderUseCase {
@@ -41,9 +38,9 @@ public class GetOrderUseCase {
 
     private static @NonNull OrderRequestDTO getOrderRequestDTO(OrderResponseDTO orderResponse) {
         OrderRequestDTO orderRequest = new OrderRequestDTO(
-                orderResponse.id(),
                 orderResponse.product(),
                 orderResponse.quantity(),
+                orderResponse.price(),
                 orderResponse.status()
         );
         return orderRequest;
@@ -57,16 +54,16 @@ public class GetOrderUseCase {
     public OrderResponseDTO executeTTR(Long id) {
         OrderResponseDTO dto = repository.findById(id).get();
 
-        OrderEvent event = new OrderEvent(
-                dto.id(),
-                dto.product(),
-                dto.quantity(),
-                dto.status()
-        );
-
-        if (Objects.nonNull(event)){
-            consumer.consumer(event);
-        }
+//        Event event = new Event(
+//                dto.id(),
+//                dto.product(),
+//                dto.quantity(),
+//                dto.status()
+//        );
+//
+//        if (Objects.nonNull(event)){
+//            consumer.consumer(event);
+//        }
         return dto;
     }
 }

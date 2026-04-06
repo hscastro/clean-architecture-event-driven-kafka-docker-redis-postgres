@@ -1,7 +1,7 @@
 package com.hscastro.example.order_service.domain.repository;
 
-import com.hscastro.example.order_service.application.dto.OrderRequestDTO;
-import com.hscastro.example.order_service.application.dto.OrderResponseDTO;
+import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
+import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import org.springframework.stereotype.Repository;
 
 

@@ -1,13 +1,11 @@
 package com.hscastro.example.order_service.infrastructure.redis;
 
-import com.hscastro.example.order_service.application.dto.OrderRequestDTO;
-import com.hscastro.example.order_service.application.dto.OrderResponseDTO;
 import com.hscastro.example.order_service.domain.model.Order;
+import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
+import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import com.hscastro.example.order_service.interfaces.mapper.OrderMapper;
-import lombok.Data;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.time.Duration;
 
@@ -25,7 +23,7 @@ public class OrderCache {
 
     public void save(OrderRequestDTO dto){
         var order = orderMapper.toEntity(dto);
-        String cacheKey = "order:"+order.getId();
+        String cacheKey = "order:"+order;
 
         redisTemplate.opsForValue().set(
                 cacheKey,

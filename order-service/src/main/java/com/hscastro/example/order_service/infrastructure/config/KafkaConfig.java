@@ -1,7 +1,7 @@
 package com.hscastro.example.order_service.infrastructure.config;
 
 
-import com.hscastro.example.order_service.domain.model.OrderEvent;
+import com.hscastro.example.order_service.domain.model.Event;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -54,7 +54,7 @@ public class KafkaConfig {
     // =========================
 
     @Bean
-    public DefaultKafkaConsumerFactory<String, OrderEvent> consumerFactory(){
+    public DefaultKafkaConsumerFactory<String, Event> consumerFactory(){
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         config.put(ConsumerConfig.GROUP_ID_CONFIG, groupIdConfig);
@@ -63,7 +63,7 @@ public class KafkaConfig {
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
         // objeto json deserializer
-        JsonDeserializer<OrderEvent> jsonDeserializer = new JsonDeserializer<>(OrderEvent.class);
+        JsonDeserializer<Event> jsonDeserializer = new JsonDeserializer<>(Event.class);
 
         // IMPORTANTE: confiar no pacote do DTO/Evento
         config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
@@ -75,8 +75,8 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, OrderEvent> kafkaListenerFactory(){
-        ConcurrentKafkaListenerContainerFactory<String, OrderEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, Event> kafkaListenerFactory(){
+        ConcurrentKafkaListenerContainerFactory<String, Event> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }

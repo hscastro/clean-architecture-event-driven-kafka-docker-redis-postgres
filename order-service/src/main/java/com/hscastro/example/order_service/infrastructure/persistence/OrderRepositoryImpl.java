@@ -1,9 +1,9 @@
 package com.hscastro.example.order_service.infrastructure.persistence;
 
-import com.hscastro.example.order_service.application.dto.OrderRequestDTO;
-import com.hscastro.example.order_service.application.dto.OrderResponseDTO;
 import com.hscastro.example.order_service.domain.model.Order;
 import com.hscastro.example.order_service.domain.repository.OrderRepository;
+import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
+import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import com.hscastro.example.order_service.interfaces.exception.OrderValidationException;
 import com.hscastro.example.order_service.interfaces.mapper.OrderMapper;
 import org.springframework.stereotype.Repository;

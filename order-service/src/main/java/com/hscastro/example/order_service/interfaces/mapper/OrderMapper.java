@@ -1,8 +1,8 @@
 package com.hscastro.example.order_service.interfaces.mapper;
 
-import com.hscastro.example.order_service.application.dto.OrderRequestDTO;
-import com.hscastro.example.order_service.application.dto.OrderResponseDTO;
 import com.hscastro.example.order_service.domain.model.Order;
+import com.hscastro.example.order_service.interfaces.dto.request.OrderRequestDTO;
+import com.hscastro.example.order_service.interfaces.dto.response.OrderResponseDTO;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
