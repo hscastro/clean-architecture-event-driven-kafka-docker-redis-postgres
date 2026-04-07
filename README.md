@@ -51,7 +51,7 @@ Cada microserviço segue a estrutura:
 
 ###  📁 Estrutura do Projeto
 
-```bash
+```
 
 application/
   └── usecases/
@@ -102,14 +102,17 @@ Cada serviço reage de forma independente
 Responsável por gerenciar pedidos.
 
 ### 📥 Request
+```
 {
   "product": "Oculos de grau",
   "quantity": 3,
   "price": 256.99,
   "status": "PENDING"
 }
+```
 
 ### 📤 Response
+```
 {
   "id": "c03975e6-687a-4bb8-9ad9-f1d9e4cf1cfa",
   "product": "Oculos de grau",
@@ -117,7 +120,7 @@ Responsável por gerenciar pedidos.
   "price": 256.99,
   "status": "PENDING"
 }
-
+```
 ### 🗄️ Persistência
 PostgreSQL: armazenamento principal dos pedidos
 Redis: cache para otimização de leitura
@@ -127,7 +130,7 @@ Apache Kafka
 Tópico exemplo: order-created-topic
 
 Evento publicado:
-
+```
 {
   "eventType": "ORDER_CREATED",
   "data": {
@@ -138,7 +141,7 @@ Evento publicado:
     "status": "PENDING"
   }
 }
-
+```
 ### 🐳 Docker
 
 Subir toda a infraestrutura:
